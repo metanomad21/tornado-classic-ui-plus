@@ -230,7 +230,7 @@ export default {
   },
 
   provider: {
-    rpcUrl: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
+    rpcUrl: `https://rpc.9purple.co`
   },
 
   // todo make custom loading page

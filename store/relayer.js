@@ -417,6 +417,7 @@ export const actions = {
     const { currency, netId, amount, commitmentHex } = parseNote(note)
 
     const config = networkConfig[`netId${netId}`]
+    console.log('relayTornadoWithdraw...', netId, currency, amount)
     const contract = config.tokens[currency].instanceAddress[amount]
 
     try {

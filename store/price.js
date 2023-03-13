@@ -78,7 +78,8 @@ export const actions = {
     }
 
     try {
-      const web3 = this.$provider.getWeb3(rootState.settings.netId1.rpc.url)
+      // const web3 = this.$provider.getWeb3(rootState.settings.netId1.rpc.url)
+      const web3 = this.$provider.getWeb3(rootState.settings.netId9333.rpc.url)
       const offchainOracle = new web3.eth.Contract(offchainOracleABI, offchainOracleAddress)
       const { tokenAddresses, oneUintAmount, currencyLookup } = getters.getArgsForOracle
 

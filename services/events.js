@@ -46,11 +46,13 @@ class EventService {
       fromBlock = savedEvents.lastBlock + 1
     }
 
+    console.log('getEvents:', savedEvents)
     const newEvents = await this.getEventsFromBlock({
       type,
       fromBlock,
       graphMethod: `getAll${capitalizeFirstLetter(type)}s`
     })
+    console.log('newEvents:', newEvents)
 
     const allEvents = [].concat(savedEvents?.events || [], newEvents?.events || []).sort((a, b) => {
       if (a.leafIndex && b.leafIndex) {
@@ -97,6 +99,7 @@ class EventService {
 
   getContract({ netId, amount, currency }) {
     const config = networkConfig[`netId${netId}`]
+    console.log('getContract...', netId, currency, amount)
     const address = config.tokens[currency].instanceAddress[amount]
     return this.factoryMethods.getContract(address)
   }

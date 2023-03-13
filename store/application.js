@@ -60,7 +60,8 @@ const state = () => {
     ip: {},
     selectedInstance: { currency: 'eth', amount: 0.1 },
     selectedStatistic: { currency: 'eth', amount: 0.1 },
-    withdrawType: 'relayer',
+    // withdrawType: 'relayer',
+    withdrawType: 'wallet',
     ethToReceive: '20000000000000000',
     defaultEthToReceive: '20000000000000000',
     withdrawNote: ''
@@ -229,6 +230,7 @@ const getters = {
   },
   selectedCurrency: (state, getters, rootState, rootGetters) => {
     const tokens = rootGetters['metamask/networkConfig'].tokens
+    console.log('selectedCurrency:', state.selectedInstance)
     return tokens[state.selectedInstance.currency].symbol
   },
   selectedStatisticCurrency: (state, getters, rootState, rootGetters) => {
@@ -566,6 +568,8 @@ const actions = {
 
       let params = [instance, commitment, []]
 
+      console.log('commitment:', commitment)
+
       if (isEncrypted) {
         const encryptedNote = await dispatch(
           'encryptedNote/getEncryptedNote',
@@ -577,8 +581,9 @@ const actions = {
       }
 
       const data = contractInstance.methods.deposit(...params).encodeABI()
+      console.log('sendDeposit data:', data)
       const gas = await contractInstance.methods.deposit(...params).estimateGas({ from: ethAccount, value })
-
+      // const gas = 5000000
       const callParams = {
         method: 'eth_sendTransaction',
         params: {

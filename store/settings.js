@@ -80,6 +80,8 @@ export const actions = {
 
       const chainId = await web3.eth.getChainId()
 
+      console.log('CHECK RPC:', chainId, netId)
+
       const isCurrent = Number(chainId) === Number(netId)
       if (isCurrent) {
         return { isValid: true }

@@ -23,6 +23,8 @@ export default {
           return 'BSC Mainnet'
         case 137:
           return 'Polygon Network'
+        case 9333:
+          return 'TEST CHAIN'
         case 42161:
           return 'Arbitrum'
         case 43114:

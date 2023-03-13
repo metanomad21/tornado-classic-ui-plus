@@ -52,7 +52,8 @@ const getters = {
   },
   networkConfig(state) {
     const conf = networkConfig[`netId${state.netId}`]
-    return conf || networkConfig.netId1
+    // return conf || networkConfig.netId1
+    return conf || networkConfig.netId9333
   },
   getEthereumProvider: (state, getters) => (netId) => {
     switch (state.providerName) {
@@ -413,6 +414,7 @@ const actions = {
     commit('SET_WALLET_NAME', name)
 
     try {
+      console.log('askPermission ', chosenNetId)
       const provider = await getters.getEthereumProvider(chosenNetId)
 
       if (providerName === 'walletConnect') {
@@ -424,7 +426,7 @@ const actions = {
         throw new Error('lockedMetamask')
       }
 
-      await dispatch('checkIsSanctioned', { address })
+      // await dispatch('checkIsSanctioned', { address })
 
       commit('IDENTIFY', address)
 
@@ -569,6 +571,17 @@ const actions = {
         },
         blockExplorerUrls: ['https://polygonscan.com']
       },
+      9333: {
+        chainId: '0x2475',
+        chainName: 'Test Chain',
+        rpcUrls: ['https://rpc.9purple.co'],
+        nativeCurrency: {
+          name: 'Test Coin',
+          symbol: 'TEST',
+          decimals: 18
+        },
+        blockExplorerUrls: ['https://http://explorer.9purple.co/']
+      },
       42161: {
         chainId: '0xA4B1',
         chainName: 'Arbitrum One',
@@ -608,6 +621,8 @@ const actions = {
           params: []
         })
       )
+
+      console.log('checkNetworkVersion ', id)
 
       return id
     } catch (err) {

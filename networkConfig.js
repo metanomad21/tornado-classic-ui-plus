@@ -284,6 +284,65 @@ export default {
     },
     'tornado-proxy-light.contract.tornadocash.eth': '0x0D5550d52428E7e3175bfc9550207e4ad3859b17'
   },
+  netId9333: {
+    rpcCallRetryAttempt: 15,
+    gasPrices: {
+      instant: 1,
+      fast: 1,
+      standard: 1,
+      low: 1
+    },
+    nativeCurrency: 'testcoin',
+    currencyName: 'TESTCOIN',
+    explorerUrl: {
+      tx: 'http://explorer.9purple.co/tx/',
+      address: 'http://explorer.9purple.co/address/',
+      block: 'http://explorer.9purple.co/block/'
+    },
+    merkleTreeHeight: 20,
+    emptyElement: '21663839004416932945382355908790599225266501822907911457504978515578255421292',
+    networkName: 'Test Chain',
+    deployedBlock: 3000000,
+    multicall: '0x139D309C45BD409B478168515605814b0B00A6a1',
+    echoContractAccount: '0x05c669FfB5fc809E4123dF9231Aa2a6FD9142088',
+    rpcUrls: {
+      TESTCHAIN: {
+        name: 'TestChain Public RPC',
+        url: 'https://rpc.9purple.co'
+      }
+    },
+    tokens: {
+      testcoin: {
+        instanceAddress: {
+          '1': '0x8aB1a3415436D7eE9fC537c211249F6a7bcC543c',
+          '5': '0x65296A5fDE2F2B0Ff6Df48cBE67F37fC30a680A9',
+          '10': '0xBC7287ba018F22A84A85F87277F1e0BC2CF78A21',
+          '50': '0x397cA1a8339cAB61f07b02Cab5BcEFaa0Fb2B65C'
+        },
+        symbol: 'TESTCOIN',
+        decimals: 18
+      },
+      USDT2: {
+        instanceAddress: {
+          '5000': '0x6797F1468007e0A7720a17ceD2D47350B45E26e5',
+          '50000': '0x02c2d060e051CDe1445856C461B838F8d9a8DBDa',
+          '500000': '0x22a62D286CF2c65C3eE72496dDa7ba18DF0e1971',
+          '5000000': '0x5a701b5B0254a42406315898DDe8C07B09851007'
+        },
+        tokenAddress: '0x284640bA158429E2d3A1d9c302071e59D96EFa04',
+        symbol: 'USDT2',
+        decimals: 6,
+        gasLimit: '425000'
+      }
+    },
+    ensSubdomainKey: 'testchain-tornado',
+    pollInterval: 15,
+    constants: {
+      NOTE_ACCOUNT_BLOCK: 3430605,
+      ENCRYPTED_NOTES_BLOCK: 3430605
+    },
+    'tornado-proxy-light.contract.tornadocash.eth': '0xE0381e479476aB0D973c92d013cE1462F8Cb93A7'
+  },
   netId42161: {
     rpcCallRetryAttempt: 15,
     gasPrices: {

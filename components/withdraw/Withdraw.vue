@@ -128,11 +128,6 @@
         <b-button
           type="is-primary is-fullwidth"
           class="slide-animation"
-          :outlined="isLoading"
-          :expanded="isLoading"
-          :class="{ 'slide-animation-active': isLoading }"
-          :disabled="isWithdrawalButtonDisable"
-          :loading="isLoadingRelayers || isLoading"
           data-test="button_start_withdraw"
           @click="onWithdraw"
         >
@@ -248,11 +243,12 @@ export default {
         this.isLoading ||
         !!this.error.type ||
         this.hasErrorNote ||
-        (this.withdrawType === 'relayer' && !this.selectedRelayer) ||
+        // (this.withdrawType === 'relayer' && !this.selectedRelayer) ||
         !this.isValidAddress
       )
     },
     isWithdrawalButtonDisable() {
+      console.log('isWithdrawalButtonDisable ...', this.isWithdrawDisabled)
       return (
         this.isWithdrawDisabled || this.isNotEnoughTokens || this.isFileError || this.withDisconnectedWallet
       )
@@ -386,7 +382,7 @@ export default {
     async getKeys() {
       try {
         this.isFileError = false
-        this.isLoading = true
+        this.isLoading = false
         this.getProgress(0)
         await getTornadoKeys(this.getProgress)
         return true

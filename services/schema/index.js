@@ -29,6 +29,7 @@ function getRelayerValidateFunction(netId) {
       return ajv.getSchema('avalancheRelayer')
 
     case 10:
+    case 9333:
     case 42161:
       return ajv.getSchema('l2Relayer')
 
