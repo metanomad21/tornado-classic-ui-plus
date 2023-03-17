@@ -88,7 +88,12 @@ export default {
     ...mapGetters('metamask', ['networkConfig']),
     ...mapGetters('application', ['selectedStatisticCurrency', 'latestDeposits']),
     anonimitySet() {
-      const currency = this.selectedStatistic.currency.toLowerCase()
+      let currency = this.selectedStatistic.currency.toLowerCase()
+      if (currency === 'usdt2') {
+        currency = currency.toUpperCase()
+      }
+      console.log('selectedStatistic:', this.selectedStatistic)
+      console.log('statistic:', this.statistic)
       return this.statistic[currency][this.selectedStatistic.amount].anonymitySet
     }
   },

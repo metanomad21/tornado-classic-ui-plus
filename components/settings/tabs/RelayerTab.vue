@@ -209,7 +209,6 @@ export default {
       this.hasErrorRelayer = { type: '', msg: '' }
       this.isValidRelayer = false
       this.checkingRelayer = true
-
       const { isValid, error, ...relayer } = await this.$store.dispatch('relayer/setupRelayer', {
         name,
         url

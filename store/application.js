@@ -659,7 +659,7 @@ const actions = {
   },
   async checkRoot({ getters }, { root, parsedNote }) {
     const contractInstance = getters.instanceContract(parsedNote)
-
+    console.log('checkRoot:', root)
     const isKnownRoot = await contractInstance.methods.isKnownRoot(root).call()
 
     if (!isKnownRoot) {
@@ -682,13 +682,15 @@ const actions = {
     ])
 
     const commitments = eventsData.events.map((el) => el.commitment.toString(10))
+    console.log('commitments:', commitments)
 
     let tree = cachedTree
+    console.log('tree cache', tree)
     if (tree) {
       const newLeaves = commitments.slice(tree.elements.length)
       tree.bulkInsert(newLeaves)
     } else {
-      console.log('events', eventsData)
+      console.log('tree-events', eventsData)
       checkCommitments(eventsData.events)
       tree = treeService.createTree({ events: commitments })
     }

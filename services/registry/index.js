@@ -163,14 +163,14 @@ class RelayerRegister {
         relayerAddress: relayer.relayerAddress
       })
     } else {
-      console.error(`${relayer.ensName} invalid: `, {
-        isOwner,
-        hasTXT: Boolean(hostname),
-        isHasMinBalance: hasMinBalance,
-        isRegistered: curr.isRegistered,
-        isHostWithoutProtocol: !isHostWithProtocol,
-        isMainnetSubdomain: Boolean(mainnetSubdomain)
-      })
+      // console.error(`${relayer.ensName} invalid: `, {
+      //   isOwner,
+      //   hasTXT: Boolean(hostname),
+      //   isHasMinBalance: hasMinBalance,
+      //   isRegistered: curr.isRegistered,
+      //   isHostWithoutProtocol: !isHostWithProtocol,
+      //   isMainnetSubdomain: Boolean(mainnetSubdomain)
+      // })
     }
 
     return acc
