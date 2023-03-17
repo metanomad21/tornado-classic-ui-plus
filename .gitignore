@@ -89,5 +89,5 @@ sw.*
 .DS_Store
 
 
-package-lock.json
-yarn.lock
+/package-lock.json
+/yarn.lock
